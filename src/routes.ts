@@ -11,13 +11,12 @@ const upload = multer(uploadConfig);
 
 router.post("/authenticate", new AuthenticateUserController().handle);
 
+router.get("/room", new GetRoomsController().handle);
 router.post(
   "/room",
   ensureAuthenticaed,
   upload.array("images"),
   new CreateRoomController().handle
 );
-
-router.get("/room", new GetRoomsController().handle);
 
 export { router };

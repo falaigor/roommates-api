@@ -26,7 +26,7 @@ model Room {
   latitude    String
   longitude   String
 
-  user User @relation(fields: [user_id], references: [id])
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   images  Image[]
   user_id String
