@@ -141,10 +141,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 🦸 Autor
 
-<a href="https://blog.rocketseat.com.br/author/thiago/">
+<a href="https://www.linkedin.com/in/falaigor/">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/40046196?v=4" width="100px;" alt=""/>
  <br />
- <sub><b>Igor Santos</b></sub></a> <a href="https://instagram.com/falaigors/" title="Instagram Igor Santos">🚀</a>
+ <sub><b>Igor Santos</b></sub></a> <a href="https://www.linkedin.com/in/falaigor/" title="Linkedin Igor Santos">🚀</a>
  <br />
 
 [![Twitter Badge](https://img.shields.io/badge/-@falaigors-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/falaigors)](https://twitter.com/falaigors)
