@@ -8,7 +8,6 @@ class CreateRoomService {
     price: string,
     latitude: string,
     longitude: string,
-    user_id: string,
     images: { path: string }[]
   ) {
     const room = await prismaClient.room.create({
@@ -18,14 +17,12 @@ class CreateRoomService {
         price,
         latitude,
         longitude,
-        user_id,
         images: {
           create: images,
         },
       },
       include: {
         images: true,
-        user: true,
       },
     });
 
@@ -36,11 +33,6 @@ class CreateRoomService {
       latitude: room.latitude,
       longitude: room.longitude,
       images: room.images,
-      user_id: room.user_id,
-      user: {
-        name: room.user.name,
-        avatar: room.user.avatar_url,
-      },
     };
 
     io.emit("new_room", infoWS);

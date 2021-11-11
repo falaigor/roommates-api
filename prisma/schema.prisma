@@ -7,17 +7,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model User {
-  id         String @id @default(uuid())
-  name       String
-  github_id  Int
-  avatar_url String
-  login      String
-
-  rooms Room[]
-  @@map("users")
-}
-
 model Room {
   id          String @id @default(uuid())
   title       String
@@ -26,10 +15,7 @@ model Room {
   latitude    String
   longitude   String
 
-  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
-
-  images  Image[]
-  user_id String
+  images Image[]
   @@map("rooms")
 }
 

@@ -18,10 +18,8 @@ class CreateRoomController {
       latitude,
       longitude,
     }: ICreateRoomRequest = request.body;
-    const { user_id } = request;
 
     const requestImages = request.files as Express.Multer.File[];
-    console.log(requestImages);
 
     const images = requestImages.map((image) => {
       return { path: image.path };
@@ -36,7 +34,6 @@ class CreateRoomController {
         price,
         latitude,
         longitude,
-        user_id,
         images
       );
       return response.json(result);

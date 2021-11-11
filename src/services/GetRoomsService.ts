@@ -8,7 +8,6 @@ class GetRoomsService {
       },
       include: {
         images: true,
-        user: true,
       },
     });
 
