@@ -69,7 +69,7 @@ $ npm run dev ou yarn dev
 ```
 
 <p align="center">
-  <a href="https://github.com/falaigors/roommates-api/blob/master/Insomnia_API_Roommates.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+  <a href="https://github.com/falaigor/roommates-api/blob/main/Insomnia_API_Roommates.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 ### .env
