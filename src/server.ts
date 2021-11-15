@@ -4,7 +4,7 @@ import session from "express-session";
 import http from "http";
 import cors from "cors";
 import passport from "passport";
-import "./auth";
+import "./configs/authGoogle";
 
 import { router } from "./routes";
 
