@@ -23,7 +23,7 @@ export function ensureAuthenticaed(
   try {
     const { sub } = verify(token, process.env.JWT_SECRET) as IPayLoad;
 
-    request.user_id = sub;
+    request.session_id = sub;
 
     return next();
   } catch (err) {

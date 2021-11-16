@@ -6,11 +6,11 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:4000/signin/callback",
+      callbackURL: "http://localhost:4000/auth/google/callback",
       passReqToCallback: true,
     },
     function (request, accessToken, refreshToken, profile, done) {
-      return done(null, profile);
+      return done(null, accessToken, profile);
     }
   )
 );

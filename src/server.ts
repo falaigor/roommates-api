@@ -28,19 +28,20 @@ app.get(
 );
 
 app.get(
-  "/signin/callback",
+  "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/protected",
+    successRedirect: "/auth/google/success",
     failureRedirect: "/auth/google/failure",
   })
 );
 
-app.get("/protected", isLoggedIn, (request, response) => {
-  response.send(`Hello ${request.user}`);
+app.get("/auth/google/success", isLoggedIn, (request, response) => {
+  const accessToken = request.user;
+  return response.json(accessToken);
 });
 
-app.get("/auth/google/failure", (req, res) => {
-  res.send("Failed to authenticate..");
+app.get("/auth/google/failure", (request, response) => {
+  response.send("Failed to authenticate..");
 });
 
 serverHttp.listen(process.env.PORT || 4000, () =>
