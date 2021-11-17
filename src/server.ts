@@ -1,6 +1,5 @@
 import "dotenv/config";
 import express from "express";
-import session from "express-session";
 import http from "http";
 import cors from "cors";
 import passport from "passport";
@@ -18,7 +17,6 @@ function isLoggedIn(req, res, next) {
 
 app.use(express.json());
 app.use(router);
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
