@@ -5,7 +5,7 @@ interface IPayLoad {
   sub: string;
 }
 
-export function ensureAuthenticaed(
+export function ensureAuthenticated(
   request: Request,
   response: Response,
   next: NextFunction

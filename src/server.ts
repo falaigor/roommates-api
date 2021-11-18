@@ -2,7 +2,6 @@ import "dotenv/config";
 import express from "express";
 import http from "http";
 import cors from "cors";
-import passport from "passport";
 import "./configs/authGoogle";
 
 import { router } from "./routes";
@@ -11,35 +10,23 @@ const app = express();
 app.use(cors());
 const serverHttp = http.createServer(app);
 
-function isLoggedIn(req, res, next) {
-  req.user ? next() : res.sendStatus(401);
-}
-
 app.use(express.json());
 app.use(router);
-app.use(passport.initialize());
-app.use(passport.session());
 
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["email", "profile"] })
-);
+app.get("/auth/google", (request, response) => {
+  const clientID = process.env.GOOGLE_CLIENT_ID;
+  const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+  const redirectURI = process.env.GOOGLE_REDIRECT_URI;
 
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "/auth/google/success",
-    failureRedirect: "/auth/google/failure",
-  })
-);
-
-app.get("/auth/google/success", isLoggedIn, (request, response) => {
-  const accessToken = request.user;
-  return response.json(accessToken);
+  response.redirect(
+    `https://accounts.google.com/o/oauth2/v2/auth?response_type=token&client_id=${clientID}&cliente_secrete=${clientSecret}&scope=profile&redirect_uri=${redirectURI}auth/google/callback`
+  );
 });
 
-app.get("/auth/google/failure", (request, response) => {
-  response.send("Failed to authenticate..");
+app.get("/auth/google/callback", (request, response) => {
+  const { code } = request.query;
+  console.log(request.params);
+  return response.json(code);
 });
 
 serverHttp.listen(process.env.PORT || 4000, () =>
